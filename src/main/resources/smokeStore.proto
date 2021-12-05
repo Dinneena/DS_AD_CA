@@ -6,20 +6,17 @@ option java_outer_classname = "SmokeStoreProto";
 
 package smokeStore;
 
-//Client-side streaming
-service GetStoreListings{
+
+service Store{
+	//Client-side streaming
 	rpc getSummary(stream ListingRequest) returns (GamesSummary){}
+	//Server-side streaming
+	rpc getOwned(OwnedGamesRequest) returns (stream GamesOwned){}
 }
 
-//server-side streaming
-service GetOwnedGames{
-	rpc getOwned(OwnedGamesRequest) returns (stream GamesOwned){
-
-	}
-}
 
 message ListingRequest{
-	string accountName = 1;
+	string gameList = 1;
 }
 
 message GamesSummary{

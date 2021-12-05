@@ -20,10 +20,10 @@ public final class SmokeProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_smokeLibrary_GameRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_smokeLibrary_GamesOwned_descriptor;
+    internal_static_smokeLibrary_GameInfo_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_smokeLibrary_GamesOwned_fieldAccessorTable;
+      internal_static_smokeLibrary_GameInfo_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_smokeLibrary_InstalledRequest_descriptor;
   static final 
@@ -44,16 +44,15 @@ public final class SmokeProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\022smokeLibrary.proto\022\014smokeLibrary\"\"\n\013Ga" +
-      "meRequest\022\023\n\013accountName\030\001 \001(\t\"\035\n\nGamesO" +
-      "wned\022\017\n\007message\030\001 \001(\t\"\'\n\020InstalledReques" +
-      "t\022\023\n\013accountName\030\001 \001(\t\"!\n\016GamesInstalled" +
-      "\022\017\n\007message\030\001 \001(\t2R\n\rGetOwnedGames\022A\n\010ge" +
-      "tGames\022\031.smokeLibrary.GameRequest\032\030.smok" +
-      "eLibrary.GamesOwned\"\0002e\n\021GetInstalledGam" +
-      "es\022P\n\ngetInstall\022\036.smokeLibrary.Installe" +
-      "dRequest\032\034.smokeLibrary.GamesInstalled\"\000" +
-      "(\0010\001B)\n\031com.adinneen.smokeLibraryB\nSmoke" +
-      "ProtoP\001b\006proto3"
+      "meRequest\022\023\n\013accountName\030\001 \001(\t\"\033\n\010GameIn" +
+      "fo\022\017\n\007message\030\001 \001(\t\"\'\n\020InstalledRequest\022" +
+      "\023\n\013accountName\030\001 \001(\t\"!\n\016GamesInstalled\022\017" +
+      "\n\007message\030\001 \001(\t2\237\001\n\007Library\022B\n\013getGameIn" +
+      "fo\022\031.smokeLibrary.GameRequest\032\026.smokeLib" +
+      "rary.GameInfo\"\000\022P\n\ngetInstall\022\036.smokeLib" +
+      "rary.InstalledRequest\032\034.smokeLibrary.Gam" +
+      "esInstalled\"\000(\0010\001B)\n\031com.adinneen.smokeL" +
+      "ibraryB\nSmokeProtoP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -73,11 +72,11 @@ public final class SmokeProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_smokeLibrary_GameRequest_descriptor,
         new java.lang.String[] { "AccountName", });
-    internal_static_smokeLibrary_GamesOwned_descriptor =
+    internal_static_smokeLibrary_GameInfo_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_smokeLibrary_GamesOwned_fieldAccessorTable = new
+    internal_static_smokeLibrary_GameInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_smokeLibrary_GamesOwned_descriptor,
+        internal_static_smokeLibrary_GameInfo_descriptor,
         new java.lang.String[] { "Message", });
     internal_static_smokeLibrary_InstalledRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);

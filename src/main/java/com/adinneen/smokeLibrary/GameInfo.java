@@ -4,18 +4,18 @@
 package com.adinneen.smokeLibrary;
 
 /**
- * Protobuf type {@code smokeLibrary.GamesOwned}
+ * Protobuf type {@code smokeLibrary.GameInfo}
  */
-public  final class GamesOwned extends
+public  final class GameInfo extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:smokeLibrary.GamesOwned)
-    GamesOwnedOrBuilder {
+    // @@protoc_insertion_point(message_implements:smokeLibrary.GameInfo)
+    GameInfoOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use GamesOwned.newBuilder() to construct.
-  private GamesOwned(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use GameInfo.newBuilder() to construct.
+  private GameInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private GamesOwned() {
+  private GameInfo() {
     message_ = "";
   }
 
@@ -24,7 +24,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private GamesOwned(
+  private GameInfo(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -70,15 +70,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.adinneen.smokeLibrary.SmokeProto.internal_static_smokeLibrary_GamesOwned_descriptor;
+    return com.adinneen.smokeLibrary.SmokeProto.internal_static_smokeLibrary_GameInfo_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.adinneen.smokeLibrary.SmokeProto.internal_static_smokeLibrary_GamesOwned_fieldAccessorTable
+    return com.adinneen.smokeLibrary.SmokeProto.internal_static_smokeLibrary_GameInfo_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.adinneen.smokeLibrary.GamesOwned.class, com.adinneen.smokeLibrary.GamesOwned.Builder.class);
+            com.adinneen.smokeLibrary.GameInfo.class, com.adinneen.smokeLibrary.GameInfo.Builder.class);
   }
 
   public static final int MESSAGE_FIELD_NUMBER = 1;
@@ -154,10 +154,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.adinneen.smokeLibrary.GamesOwned)) {
+    if (!(obj instanceof com.adinneen.smokeLibrary.GameInfo)) {
       return super.equals(obj);
     }
-    com.adinneen.smokeLibrary.GamesOwned other = (com.adinneen.smokeLibrary.GamesOwned) obj;
+    com.adinneen.smokeLibrary.GameInfo other = (com.adinneen.smokeLibrary.GameInfo) obj;
 
     boolean result = true;
     result = result && getMessage()
@@ -180,69 +180,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static com.adinneen.smokeLibrary.GamesOwned parseFrom(
+  public static com.adinneen.smokeLibrary.GameInfo parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.adinneen.smokeLibrary.GamesOwned parseFrom(
+  public static com.adinneen.smokeLibrary.GameInfo parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.adinneen.smokeLibrary.GamesOwned parseFrom(
+  public static com.adinneen.smokeLibrary.GameInfo parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.adinneen.smokeLibrary.GamesOwned parseFrom(
+  public static com.adinneen.smokeLibrary.GameInfo parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.adinneen.smokeLibrary.GamesOwned parseFrom(byte[] data)
+  public static com.adinneen.smokeLibrary.GameInfo parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.adinneen.smokeLibrary.GamesOwned parseFrom(
+  public static com.adinneen.smokeLibrary.GameInfo parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.adinneen.smokeLibrary.GamesOwned parseFrom(java.io.InputStream input)
+  public static com.adinneen.smokeLibrary.GameInfo parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.adinneen.smokeLibrary.GamesOwned parseFrom(
+  public static com.adinneen.smokeLibrary.GameInfo parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.adinneen.smokeLibrary.GamesOwned parseDelimitedFrom(java.io.InputStream input)
+  public static com.adinneen.smokeLibrary.GameInfo parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.adinneen.smokeLibrary.GamesOwned parseDelimitedFrom(
+  public static com.adinneen.smokeLibrary.GameInfo parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.adinneen.smokeLibrary.GamesOwned parseFrom(
+  public static com.adinneen.smokeLibrary.GameInfo parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.adinneen.smokeLibrary.GamesOwned parseFrom(
+  public static com.adinneen.smokeLibrary.GameInfo parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -255,7 +255,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.adinneen.smokeLibrary.GamesOwned prototype) {
+  public static Builder newBuilder(com.adinneen.smokeLibrary.GameInfo prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -271,26 +271,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code smokeLibrary.GamesOwned}
+   * Protobuf type {@code smokeLibrary.GameInfo}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:smokeLibrary.GamesOwned)
-      com.adinneen.smokeLibrary.GamesOwnedOrBuilder {
+      // @@protoc_insertion_point(builder_implements:smokeLibrary.GameInfo)
+      com.adinneen.smokeLibrary.GameInfoOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.adinneen.smokeLibrary.SmokeProto.internal_static_smokeLibrary_GamesOwned_descriptor;
+      return com.adinneen.smokeLibrary.SmokeProto.internal_static_smokeLibrary_GameInfo_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.adinneen.smokeLibrary.SmokeProto.internal_static_smokeLibrary_GamesOwned_fieldAccessorTable
+      return com.adinneen.smokeLibrary.SmokeProto.internal_static_smokeLibrary_GameInfo_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.adinneen.smokeLibrary.GamesOwned.class, com.adinneen.smokeLibrary.GamesOwned.Builder.class);
+              com.adinneen.smokeLibrary.GameInfo.class, com.adinneen.smokeLibrary.GameInfo.Builder.class);
     }
 
-    // Construct using com.adinneen.smokeLibrary.GamesOwned.newBuilder()
+    // Construct using com.adinneen.smokeLibrary.GameInfo.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -316,17 +316,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.adinneen.smokeLibrary.SmokeProto.internal_static_smokeLibrary_GamesOwned_descriptor;
+      return com.adinneen.smokeLibrary.SmokeProto.internal_static_smokeLibrary_GameInfo_descriptor;
     }
 
     @java.lang.Override
-    public com.adinneen.smokeLibrary.GamesOwned getDefaultInstanceForType() {
-      return com.adinneen.smokeLibrary.GamesOwned.getDefaultInstance();
+    public com.adinneen.smokeLibrary.GameInfo getDefaultInstanceForType() {
+      return com.adinneen.smokeLibrary.GameInfo.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.adinneen.smokeLibrary.GamesOwned build() {
-      com.adinneen.smokeLibrary.GamesOwned result = buildPartial();
+    public com.adinneen.smokeLibrary.GameInfo build() {
+      com.adinneen.smokeLibrary.GameInfo result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -334,8 +334,8 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.adinneen.smokeLibrary.GamesOwned buildPartial() {
-      com.adinneen.smokeLibrary.GamesOwned result = new com.adinneen.smokeLibrary.GamesOwned(this);
+    public com.adinneen.smokeLibrary.GameInfo buildPartial() {
+      com.adinneen.smokeLibrary.GameInfo result = new com.adinneen.smokeLibrary.GameInfo(this);
       result.message_ = message_;
       onBuilt();
       return result;
@@ -375,16 +375,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.adinneen.smokeLibrary.GamesOwned) {
-        return mergeFrom((com.adinneen.smokeLibrary.GamesOwned)other);
+      if (other instanceof com.adinneen.smokeLibrary.GameInfo) {
+        return mergeFrom((com.adinneen.smokeLibrary.GameInfo)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.adinneen.smokeLibrary.GamesOwned other) {
-      if (other == com.adinneen.smokeLibrary.GamesOwned.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.adinneen.smokeLibrary.GameInfo other) {
+      if (other == com.adinneen.smokeLibrary.GameInfo.getDefaultInstance()) return this;
       if (!other.getMessage().isEmpty()) {
         message_ = other.message_;
         onChanged();
@@ -404,11 +404,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.adinneen.smokeLibrary.GamesOwned parsedMessage = null;
+      com.adinneen.smokeLibrary.GameInfo parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.adinneen.smokeLibrary.GamesOwned) e.getUnfinishedMessage();
+        parsedMessage = (com.adinneen.smokeLibrary.GameInfo) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -499,41 +499,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:smokeLibrary.GamesOwned)
+    // @@protoc_insertion_point(builder_scope:smokeLibrary.GameInfo)
   }
 
-  // @@protoc_insertion_point(class_scope:smokeLibrary.GamesOwned)
-  private static final com.adinneen.smokeLibrary.GamesOwned DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:smokeLibrary.GameInfo)
+  private static final com.adinneen.smokeLibrary.GameInfo DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.adinneen.smokeLibrary.GamesOwned();
+    DEFAULT_INSTANCE = new com.adinneen.smokeLibrary.GameInfo();
   }
 
-  public static com.adinneen.smokeLibrary.GamesOwned getDefaultInstance() {
+  public static com.adinneen.smokeLibrary.GameInfo getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<GamesOwned>
-      PARSER = new com.google.protobuf.AbstractParser<GamesOwned>() {
+  private static final com.google.protobuf.Parser<GameInfo>
+      PARSER = new com.google.protobuf.AbstractParser<GameInfo>() {
     @java.lang.Override
-    public GamesOwned parsePartialFrom(
+    public GameInfo parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GamesOwned(input, extensionRegistry);
+      return new GameInfo(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<GamesOwned> parser() {
+  public static com.google.protobuf.Parser<GameInfo> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<GamesOwned> getParserForType() {
+  public com.google.protobuf.Parser<GameInfo> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.adinneen.smokeLibrary.GamesOwned getDefaultInstanceForType() {
+  public com.adinneen.smokeLibrary.GameInfo getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

@@ -6,21 +6,19 @@ option java_outer_classname = "SmokeProto";
 
 package smokeLibrary;
 
-// Unary rpc
-service GetOwnedGames{
-	rpc getGames(GameRequest) returns (GamesOwned){}
-}
-
-// Bi-directional Streaming
-service GetInstalledGames{
+service Library{
+	// Unary rpc
+	rpc getGameInfo(GameRequest) returns (GameInfo){}
+	//Bidirectional Streaming
 	rpc getInstall(stream InstalledRequest) returns (stream GamesInstalled){}
 }
+
 
 message GameRequest{
 	string accountName = 1;
 }
 
-message GamesOwned{
+message GameInfo{
 	string message = 1;
 }
 

@@ -8,12 +8,12 @@ public interface ListingRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string accountName = 1;</code>
+   * <code>string gameList = 1;</code>
    */
-  java.lang.String getAccountName();
+  java.lang.String getGameList();
   /**
-   * <code>string accountName = 1;</code>
+   * <code>string gameList = 1;</code>
    */
   com.google.protobuf.ByteString
-      getAccountNameBytes();
+      getGameListBytes();
 }

@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.adinneen.smokeLibrary";
+option java_outer_classname = "SmokeProto";
+
+package smokeLibrary;
+
+// Unary rpc
+service GetOwnedGames{
+	rpc getGames(GameRequest) returns (GamesOwned){}
+}
+
+// Bi-directional Streaming
+service GetInstalledGames{
+	rpc getInstall(stream InstalledRequest) returns (stream GamesInstalled){}
+}
+
+message GameRequest{
+	string accountName = 1;
+}
+
+message GamesOwned{
+	string message = 1;
+}
+
+message InstalledRequest{
+	string accountName = 1;
+}
+
+message GamesInstalled{
+	string message = 1;
+}

@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.adinneen.smokeStore";
+option java_outer_classname = "SmokeStoreProto";
+
+package smokeStore;
+
+//Client-side streaming
+service GetStoreListings{
+	rpc getSummary(stream ListingRequest) returns (GamesSummary){}
+}
+
+//server-side streaming
+service GetOwnedGames{
+	rpc getOwned(OwnedGamesRequest) returns (stream GamesOwned){
+
+	}
+}
+
+message ListingRequest{
+	string accountName = 1;
+}
+
+message GamesSummary{
+	string message = 1;
+}
+
+message OwnedGamesRequest{
+	string accountName = 1;
+}
+
+message GamesOwned{
+	string message = 1;
+}

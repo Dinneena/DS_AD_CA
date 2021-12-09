@@ -34,14 +34,16 @@ import javax.swing.border.EmptyBorder;
 
 public class SmokeClient implements ActionListener {
 	public static void main(String[] args) throws Exception {
+
 		String host = "localhost";
 
 		ManagedChannel libraryChannel = ManagedChannelBuilder.forAddress(host, 50051).usePlaintext().build();
-
 		ManagedChannel storeChannel = ManagedChannelBuilder.forAddress(host, 50052).usePlaintext().build();
 
 		LibraryBlockingStub stub = LibraryGrpc.newBlockingStub(libraryChannel);
+		StoreStub storeStub = StoreGrpc.newStub(storeChannel);
 
+		// adding in Unary RPC
 		try {
 			GameRequest request = GameRequest.newBuilder().setAccountName("Dark Souls").build();
 			GameInfo reply = stub.getGameInfo(request);
@@ -52,43 +54,74 @@ public class SmokeClient implements ActionListener {
 		} finally {
 			libraryChannel.shutdown().awaitTermination(60, TimeUnit.SECONDS);
 		}
-		final CountDownLatch finishLatch = new CountDownLatch(1);
+
+		// adding in client-streaming
+		CountDownLatch latch = new CountDownLatch(1);
 		StreamObserver<GamesSummary> responseObserver = new StreamObserver<GamesSummary>() {
+
 			@Override
-			public void onNext(GamesSummary summary) {
-				System.out.println("On Next ");
+			public void onNext(GamesSummary value) {
+				// TODO Auto-generated method stub
+				System.out.println("Final Response from server " + value.getMessage());
 			}
 
 			@Override
 			public void onError(Throwable t) {
-				finishLatch.countDown();
+				// TODO Auto-generated method stub
+				latch.countDown();
 			}
 
 			@Override
 			public void onCompleted() {
-				finishLatch.countDown();
+				// TODO Auto-generated method stub
+				latch.countDown();
 			}
 		};
-		StoreStub storeStub = StoreGrpc.newStub(storeChannel);
+
+		// grpc library returns a StreamObserver to us
 		StreamObserver<ListingRequest> requestObserver = storeStub.getSummary(responseObserver);
-		ListingRequest request = ListingRequest.newBuilder().setGameList("Dark Souls, Crash Bandicoot, Sly Cooper")
+		ListingRequest storeRequest = ListingRequest.newBuilder().setGameList("Dark Souls, Crash Bandicoot, Sly Cooper")
 				.build();
 
-		requestObserver.onNext(request);
-		requestObserver.onNext(request);
-		requestObserver.onNext(request);
+		requestObserver.onNext(storeRequest);
+		requestObserver.onNext(storeRequest);
+		requestObserver.onNext(storeRequest);
+
+		System.out.println("Client has now sent its messages");
 		requestObserver.onCompleted();
+		Thread.sleep(5000);
 
-		try {
-//					ListingRequest request = ListingRequest.newBuilder().setGameList("Dark Souls, Crash Bandicoot, Sly Cooper").build();
-//					GamesSummary reply = storeStub.getSummary(request);
+		requestObserver.onCompleted();
+//			try {
+//				ListingRequest request = ListingRequest.newBuilder().setGameList("Dark Souls, Crash Bandicoot, Sly Cooper").build();
+//				GamesSummary reply = storeStub.getSummary(request);
+//
+//			} catch (StatusRuntimeException e) {
+//				e.printStackTrace();
+//			} finally {
+//				storeChannel.shutdown().awaitTermination(60, TimeUnit.SECONDS);
+//			}
 
-//					System.out.println(reply.getMessage());
-		} catch (StatusRuntimeException e) {
-			e.printStackTrace();
-		} finally {
-			storeChannel.shutdown().awaitTermination(60, TimeUnit.SECONDS);
-		}
+//		final CountDownLatch finishLatch = new CountDownLatch(1);
+//		StreamObserver<GamesSummary> responseObserver = new StreamObserver<GamesSummary>() {
+//			@Override
+//			public void onNext(GamesSummary summary) {
+//				System.out.println("On Next ");
+//			}
+//
+//			@Override
+//			public void onError(Throwable t) {
+//				finishLatch.countDown();
+//			}
+//
+//			@Override
+//			public void onCompleted() {
+//				finishLatch.countDown();
+//			}
+//		};
+		
+		
+
 	}
 
 	@Override

@@ -10,7 +10,7 @@ service Library{
 	// Unary rpc
 	rpc getGameInfo(GameRequest) returns (GameInfo){}
 	//Bidirectional Streaming
-	rpc getInstall(stream InstalledRequest) returns (stream GamesInstalled){}
+	rpc getInstalledGames(stream Game) returns (stream Game){}
 }
 
 
@@ -22,10 +22,7 @@ message GameInfo{
 	string message = 1;
 }
 
-message InstalledRequest{
-	string accountName = 1;
+message Game{
+	string name = 1;
 }
 
-message GamesInstalled{
-	string message = 1;
-}

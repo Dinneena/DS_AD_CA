@@ -3,6 +3,7 @@ package com.adinneen.smokeStore;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 import com.adinneen.smokeLibrary.SimpleServiceRegistration;
 import com.adinneen.smokeStore.StoreGrpc.StoreImplBase;
@@ -11,7 +12,7 @@ import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
 
 public class StoreServer extends StoreImplBase {
-	static HashMap storeMap;
+	static HashMap<String,List<String>> storeMap;
 	
 	public static void main(String[] args) {
 		int port2 = 50052;
@@ -22,7 +23,7 @@ public class StoreServer extends StoreImplBase {
 		
 		StoreServer storeServer = new StoreServer();
 
-		storeMap = new HashMap<String,ArrayList<String>>();
+		storeMap = new HashMap<String,List<String>>();
 
 		//sample dataset to pull account information from during the gRPC calls
 		String[] darkSouls = {"Dark Souls", "Dark Souls continues to push the boundaries with the latest in the genre-defining series.", "Price: €79.99", "Unowned"};
@@ -37,7 +38,7 @@ public class StoreServer extends StoreImplBase {
 		String[] residentEvil2 = {"Resident Evil 2","A deadly virus engulfs the residents of Raccoon City in September of 1998", "Price: €59.99", "Owned" };
 		String[] counterStrike = {"Counter Strike","CS: GO expands upon the team-based action gameplay that it pioneered when it was launched 19 years ago.", "Price: Free", "Owned" };
 		
-		storeMap.put("Dark Souls", Arrays.asList(darkSouls));
+		storeMap.put("Dark Souls",Arrays.asList(darkSouls));
 		storeMap.put("Bioshock", Arrays.asList(Bioshock));
 		storeMap.put("Bioshock Infinate", Arrays.asList(bioshockInfinate));
 		storeMap.put("Dishonored", Arrays.asList(dishonored));
@@ -66,13 +67,13 @@ public class StoreServer extends StoreImplBase {
 	@Override
 	public StreamObserver<ListingRequest> getSummary(StreamObserver<GamesSummary> responseObserver) {
 		System.out.println("On Server; Inside Streaming Method");
-		ArrayList<ArrayList<String>> responses = new ArrayList<>();
+		ArrayList<List<String>> responses = new ArrayList<>();
 		return new StreamObserver<ListingRequest>() {
 
 			@Override
 			public void onNext(ListingRequest value) {
 				// TODO Auto-generated method stub
-				responses.add((ArrayList<String>) storeMap.get(value.getGameList()));
+				responses.add(storeMap.get(value.getGameList()));
 				System.out.println("Value message received from client: " + value.getGameList());
 			}
 
@@ -86,7 +87,7 @@ public class StoreServer extends StoreImplBase {
 			public void onCompleted() {
 				// TODO Auto-generated method stub
 				GamesSummary.Builder response = GamesSummary.newBuilder();
-				response.setMessage(responses.toString());
+				response.setMessage("This is the game info for "+responses.toString() + ": " );
 				responseObserver.onNext(response.build());
 				responseObserver.onCompleted();
 			}

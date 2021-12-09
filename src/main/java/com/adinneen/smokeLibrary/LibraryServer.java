@@ -1,7 +1,7 @@
 package com.adinneen.smokeLibrary;
 
 
-import java.awt.List;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -15,7 +15,8 @@ import jdk.jfr.internal.Logger;
 
 
 public class LibraryServer extends LibraryImplBase{
-	static HashMap libraryMap;
+	static HashMap<String,List<String>> libraryMap;
+	
 	
 	public static void main(String[] args) {
 		int port = 50051;
@@ -25,7 +26,7 @@ public class LibraryServer extends LibraryImplBase{
 		ssr.run(port, serviceType, serviceName);
 		
 		LibraryServer libraryServer = new LibraryServer();
-		libraryMap = new HashMap<String,ArrayList<String>>();
+		libraryMap = new HashMap<String,List<String>>();
 		
 		//sample dataset to pull account information from during the gRPC calls
 		String[] blackMesa = {"Black Mesa", "Last Played: 03 December", "State: Uninstalled"};

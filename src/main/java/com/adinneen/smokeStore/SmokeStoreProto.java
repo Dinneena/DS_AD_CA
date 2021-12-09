@@ -15,25 +15,20 @@ public final class SmokeStoreProto {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_smokeStore_ListingRequest_descriptor;
+    internal_static_smokeStore_StoreGameRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_smokeStore_ListingRequest_fieldAccessorTable;
+      internal_static_smokeStore_StoreGameRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_smokeStore_GamesSummary_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_smokeStore_GamesSummary_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_smokeStore_OwnedGamesRequest_descriptor;
+    internal_static_smokeStore_StoreGame_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_smokeStore_OwnedGamesRequest_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_smokeStore_GamesOwned_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_smokeStore_GamesOwned_fieldAccessorTable;
+      internal_static_smokeStore_StoreGame_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -43,16 +38,15 @@ public final class SmokeStoreProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\020smokeStore.proto\022\nsmokeStore\"\"\n\016Listin" +
-      "gRequest\022\020\n\010gameList\030\001 \001(\t\"\037\n\014GamesSumma" +
-      "ry\022\017\n\007message\030\001 \001(\t\"(\n\021OwnedGamesRequest" +
-      "\022\023\n\013accountName\030\001 \001(\t\"\035\n\nGamesOwned\022\017\n\007m" +
-      "essage\030\001 \001(\t2\226\001\n\005Store\022F\n\ngetSummary\022\032.s" +
-      "mokeStore.ListingRequest\032\030.smokeStore.Ga" +
-      "mesSummary\"\000(\001\022E\n\010getOwned\022\035.smokeStore." +
-      "OwnedGamesRequest\032\026.smokeStore.GamesOwne" +
-      "d\"\0000\001B,\n\027com.adinneen.smokeStoreB\017SmokeS" +
-      "toreProtoP\001b\006proto3"
+      "\n\020smokeStore.proto\022\nsmokeStore\" \n\020StoreG" +
+      "ameRequest\022\014\n\004name\030\001 \001(\t\"\037\n\014GamesSummary" +
+      "\022\017\n\007summary\030\001 \001(\t\"\'\n\tStoreGame\022\014\n\004name\030\001" +
+      " \001(\t\022\014\n\004desc\030\002 \001(\t2\226\001\n\005Store\022H\n\ngetSumma" +
+      "ry\022\034.smokeStore.StoreGameRequest\032\030.smoke" +
+      "Store.GamesSummary\"\000(\001\022C\n\010getOwned\022\034.smo" +
+      "keStore.StoreGameRequest\032\025.smokeStore.St" +
+      "oreGame\"\0000\001B,\n\027com.adinneen.smokeStoreB\017" +
+      "SmokeStoreProtoP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -66,30 +60,24 @@ public final class SmokeStoreProto {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_smokeStore_ListingRequest_descriptor =
+    internal_static_smokeStore_StoreGameRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_smokeStore_ListingRequest_fieldAccessorTable = new
+    internal_static_smokeStore_StoreGameRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_smokeStore_ListingRequest_descriptor,
-        new java.lang.String[] { "GameList", });
+        internal_static_smokeStore_StoreGameRequest_descriptor,
+        new java.lang.String[] { "Name", });
     internal_static_smokeStore_GamesSummary_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_smokeStore_GamesSummary_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_smokeStore_GamesSummary_descriptor,
-        new java.lang.String[] { "Message", });
-    internal_static_smokeStore_OwnedGamesRequest_descriptor =
+        new java.lang.String[] { "Summary", });
+    internal_static_smokeStore_StoreGame_descriptor =
       getDescriptor().getMessageTypes().get(2);
-    internal_static_smokeStore_OwnedGamesRequest_fieldAccessorTable = new
+    internal_static_smokeStore_StoreGame_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_smokeStore_OwnedGamesRequest_descriptor,
-        new java.lang.String[] { "AccountName", });
-    internal_static_smokeStore_GamesOwned_descriptor =
-      getDescriptor().getMessageTypes().get(3);
-    internal_static_smokeStore_GamesOwned_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_smokeStore_GamesOwned_descriptor,
-        new java.lang.String[] { "Message", });
+        internal_static_smokeStore_StoreGame_descriptor,
+        new java.lang.String[] { "Name", "Desc", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

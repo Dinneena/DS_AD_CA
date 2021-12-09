@@ -20,11 +20,6 @@ public final class SmokeProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_smokeLibrary_GameRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_smokeLibrary_GameInfo_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_smokeLibrary_GameInfo_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_smokeLibrary_Game_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -38,13 +33,13 @@ public final class SmokeProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\022smokeLibrary.proto\022\014smokeLibrary\"\"\n\013Ga" +
-      "meRequest\022\023\n\013accountName\030\001 \001(\t\"\033\n\010GameIn" +
-      "fo\022\017\n\007message\030\001 \001(\t\"\024\n\004Game\022\014\n\004name\030\001 \001(" +
-      "\t2\220\001\n\007Library\022B\n\013getGameInfo\022\031.smokeLibr" +
-      "ary.GameRequest\032\026.smokeLibrary.GameInfo\"" +
-      "\000\022A\n\021getInstalledGames\022\022.smokeLibrary.Ga" +
-      "me\032\022.smokeLibrary.Game\"\000(\0010\001B)\n\031com.adin" +
+      "\n\022smokeLibrary.proto\022\014smokeLibrary\"\033\n\013Ga" +
+      "meRequest\022\014\n\004name\030\001 \001(\t\"5\n\004Game\022\014\n\004name\030" +
+      "\001 \001(\t\022\014\n\004desc\030\002 \001(\t\022\021\n\tinstalled\030\003 \001(\0102\223" +
+      "\001\n\007Library\022>\n\013getGameInfo\022\031.smokeLibrary" +
+      ".GameRequest\032\022.smokeLibrary.Game\"\000\022H\n\021ge" +
+      "tInstalledGames\022\031.smokeLibrary.GameReque" +
+      "st\032\022.smokeLibrary.Game\"\000(\0010\001B)\n\031com.adin" +
       "neen.smokeLibraryB\nSmokeProtoP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
@@ -64,19 +59,13 @@ public final class SmokeProto {
     internal_static_smokeLibrary_GameRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_smokeLibrary_GameRequest_descriptor,
-        new java.lang.String[] { "AccountName", });
-    internal_static_smokeLibrary_GameInfo_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_smokeLibrary_GameInfo_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_smokeLibrary_GameInfo_descriptor,
-        new java.lang.String[] { "Message", });
+        new java.lang.String[] { "Name", });
     internal_static_smokeLibrary_Game_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(1);
     internal_static_smokeLibrary_Game_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_smokeLibrary_Game_descriptor,
-        new java.lang.String[] { "Name", });
+        new java.lang.String[] { "Name", "Desc", "Installed", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

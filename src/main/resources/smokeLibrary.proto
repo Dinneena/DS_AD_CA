@@ -8,21 +8,19 @@ package smokeLibrary;
 
 service Library{
 	// Unary rpc
-	rpc getGameInfo(GameRequest) returns (GameInfo){}
+	rpc getGameInfo(GameRequest) returns (Game){}
 	//Bidirectional Streaming
-	rpc getInstalledGames(stream Game) returns (stream Game){}
+	rpc getInstalledGames(stream GameRequest) returns (stream Game){}
 }
 
 
 message GameRequest{
-	string accountName = 1;
-}
-
-message GameInfo{
-	string message = 1;
+	string name = 1;
 }
 
 message Game{
 	string name = 1;
+	string desc = 2;
+	bool installed = 3;
 }
 

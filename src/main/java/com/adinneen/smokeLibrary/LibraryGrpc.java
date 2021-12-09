@@ -28,21 +28,21 @@ public final class LibraryGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<com.adinneen.smokeLibrary.GameRequest,
-      com.adinneen.smokeLibrary.GameInfo> getGetGameInfoMethod;
+      com.adinneen.smokeLibrary.Game> getGetGameInfoMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "getGameInfo",
       requestType = com.adinneen.smokeLibrary.GameRequest.class,
-      responseType = com.adinneen.smokeLibrary.GameInfo.class,
+      responseType = com.adinneen.smokeLibrary.Game.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.adinneen.smokeLibrary.GameRequest,
-      com.adinneen.smokeLibrary.GameInfo> getGetGameInfoMethod() {
-    io.grpc.MethodDescriptor<com.adinneen.smokeLibrary.GameRequest, com.adinneen.smokeLibrary.GameInfo> getGetGameInfoMethod;
+      com.adinneen.smokeLibrary.Game> getGetGameInfoMethod() {
+    io.grpc.MethodDescriptor<com.adinneen.smokeLibrary.GameRequest, com.adinneen.smokeLibrary.Game> getGetGameInfoMethod;
     if ((getGetGameInfoMethod = LibraryGrpc.getGetGameInfoMethod) == null) {
       synchronized (LibraryGrpc.class) {
         if ((getGetGameInfoMethod = LibraryGrpc.getGetGameInfoMethod) == null) {
           LibraryGrpc.getGetGameInfoMethod = getGetGameInfoMethod = 
-              io.grpc.MethodDescriptor.<com.adinneen.smokeLibrary.GameRequest, com.adinneen.smokeLibrary.GameInfo>newBuilder()
+              io.grpc.MethodDescriptor.<com.adinneen.smokeLibrary.GameRequest, com.adinneen.smokeLibrary.Game>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "smokeLibrary.Library", "getGameInfo"))
@@ -50,7 +50,7 @@ public final class LibraryGrpc {
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.adinneen.smokeLibrary.GameRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.adinneen.smokeLibrary.GameInfo.getDefaultInstance()))
+                  com.adinneen.smokeLibrary.Game.getDefaultInstance()))
                   .setSchemaDescriptor(new LibraryMethodDescriptorSupplier("getGameInfo"))
                   .build();
           }
@@ -59,28 +59,28 @@ public final class LibraryGrpc {
      return getGetGameInfoMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.adinneen.smokeLibrary.Game,
+  private static volatile io.grpc.MethodDescriptor<com.adinneen.smokeLibrary.GameRequest,
       com.adinneen.smokeLibrary.Game> getGetInstalledGamesMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "getInstalledGames",
-      requestType = com.adinneen.smokeLibrary.Game.class,
+      requestType = com.adinneen.smokeLibrary.GameRequest.class,
       responseType = com.adinneen.smokeLibrary.Game.class,
       methodType = io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
-  public static io.grpc.MethodDescriptor<com.adinneen.smokeLibrary.Game,
+  public static io.grpc.MethodDescriptor<com.adinneen.smokeLibrary.GameRequest,
       com.adinneen.smokeLibrary.Game> getGetInstalledGamesMethod() {
-    io.grpc.MethodDescriptor<com.adinneen.smokeLibrary.Game, com.adinneen.smokeLibrary.Game> getGetInstalledGamesMethod;
+    io.grpc.MethodDescriptor<com.adinneen.smokeLibrary.GameRequest, com.adinneen.smokeLibrary.Game> getGetInstalledGamesMethod;
     if ((getGetInstalledGamesMethod = LibraryGrpc.getGetInstalledGamesMethod) == null) {
       synchronized (LibraryGrpc.class) {
         if ((getGetInstalledGamesMethod = LibraryGrpc.getGetInstalledGamesMethod) == null) {
           LibraryGrpc.getGetInstalledGamesMethod = getGetInstalledGamesMethod = 
-              io.grpc.MethodDescriptor.<com.adinneen.smokeLibrary.Game, com.adinneen.smokeLibrary.Game>newBuilder()
+              io.grpc.MethodDescriptor.<com.adinneen.smokeLibrary.GameRequest, com.adinneen.smokeLibrary.Game>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
               .setFullMethodName(generateFullMethodName(
                   "smokeLibrary.Library", "getInstalledGames"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.adinneen.smokeLibrary.Game.getDefaultInstance()))
+                  com.adinneen.smokeLibrary.GameRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.adinneen.smokeLibrary.Game.getDefaultInstance()))
                   .setSchemaDescriptor(new LibraryMethodDescriptorSupplier("getInstalledGames"))
@@ -124,7 +124,7 @@ public final class LibraryGrpc {
      * </pre>
      */
     public void getGameInfo(com.adinneen.smokeLibrary.GameRequest request,
-        io.grpc.stub.StreamObserver<com.adinneen.smokeLibrary.GameInfo> responseObserver) {
+        io.grpc.stub.StreamObserver<com.adinneen.smokeLibrary.Game> responseObserver) {
       asyncUnimplementedUnaryCall(getGetGameInfoMethod(), responseObserver);
     }
 
@@ -133,7 +133,7 @@ public final class LibraryGrpc {
      *Bidirectional Streaming
      * </pre>
      */
-    public io.grpc.stub.StreamObserver<com.adinneen.smokeLibrary.Game> getInstalledGames(
+    public io.grpc.stub.StreamObserver<com.adinneen.smokeLibrary.GameRequest> getInstalledGames(
         io.grpc.stub.StreamObserver<com.adinneen.smokeLibrary.Game> responseObserver) {
       return asyncUnimplementedStreamingCall(getGetInstalledGamesMethod(), responseObserver);
     }
@@ -145,13 +145,13 @@ public final class LibraryGrpc {
             asyncUnaryCall(
               new MethodHandlers<
                 com.adinneen.smokeLibrary.GameRequest,
-                com.adinneen.smokeLibrary.GameInfo>(
+                com.adinneen.smokeLibrary.Game>(
                   this, METHODID_GET_GAME_INFO)))
           .addMethod(
             getGetInstalledGamesMethod(),
             asyncBidiStreamingCall(
               new MethodHandlers<
-                com.adinneen.smokeLibrary.Game,
+                com.adinneen.smokeLibrary.GameRequest,
                 com.adinneen.smokeLibrary.Game>(
                   this, METHODID_GET_INSTALLED_GAMES)))
           .build();
@@ -182,7 +182,7 @@ public final class LibraryGrpc {
      * </pre>
      */
     public void getGameInfo(com.adinneen.smokeLibrary.GameRequest request,
-        io.grpc.stub.StreamObserver<com.adinneen.smokeLibrary.GameInfo> responseObserver) {
+        io.grpc.stub.StreamObserver<com.adinneen.smokeLibrary.Game> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getGetGameInfoMethod(), getCallOptions()), request, responseObserver);
     }
@@ -192,7 +192,7 @@ public final class LibraryGrpc {
      *Bidirectional Streaming
      * </pre>
      */
-    public io.grpc.stub.StreamObserver<com.adinneen.smokeLibrary.Game> getInstalledGames(
+    public io.grpc.stub.StreamObserver<com.adinneen.smokeLibrary.GameRequest> getInstalledGames(
         io.grpc.stub.StreamObserver<com.adinneen.smokeLibrary.Game> responseObserver) {
       return asyncBidiStreamingCall(
           getChannel().newCall(getGetInstalledGamesMethod(), getCallOptions()), responseObserver);
@@ -222,7 +222,7 @@ public final class LibraryGrpc {
      * Unary rpc
      * </pre>
      */
-    public com.adinneen.smokeLibrary.GameInfo getGameInfo(com.adinneen.smokeLibrary.GameRequest request) {
+    public com.adinneen.smokeLibrary.Game getGameInfo(com.adinneen.smokeLibrary.GameRequest request) {
       return blockingUnaryCall(
           getChannel(), getGetGameInfoMethod(), getCallOptions(), request);
     }
@@ -251,7 +251,7 @@ public final class LibraryGrpc {
      * Unary rpc
      * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.adinneen.smokeLibrary.GameInfo> getGameInfo(
+    public com.google.common.util.concurrent.ListenableFuture<com.adinneen.smokeLibrary.Game> getGameInfo(
         com.adinneen.smokeLibrary.GameRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getGetGameInfoMethod(), getCallOptions()), request);
@@ -280,7 +280,7 @@ public final class LibraryGrpc {
       switch (methodId) {
         case METHODID_GET_GAME_INFO:
           serviceImpl.getGameInfo((com.adinneen.smokeLibrary.GameRequest) request,
-              (io.grpc.stub.StreamObserver<com.adinneen.smokeLibrary.GameInfo>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.adinneen.smokeLibrary.Game>) responseObserver);
           break;
         default:
           throw new AssertionError();

@@ -9,24 +9,21 @@ package smokeStore;
 
 service Store{
 	//Client-side streaming
-	rpc getSummary(stream ListingRequest) returns (GamesSummary){}
+	rpc getSummary(stream StoreGameRequest) returns (GamesSummary){}
 	//Server-side streaming
-	rpc getOwned(OwnedGamesRequest) returns (stream GamesOwned){}
+	rpc getOwned(StoreGameRequest) returns (stream StoreGame){}
 }
 
 
-message ListingRequest{
-	string gameList = 1;
+message StoreGameRequest{
+	string name = 1;
 }
 
 message GamesSummary{
-	string message = 1;
+	string summary = 1;
 }
 
-message OwnedGamesRequest{
-	string accountName = 1;
-}
-
-message GamesOwned{
-	string message = 1;
+message StoreGame{
+	string name = 1;
+	string desc = 2;
 }

@@ -2,47 +2,35 @@ package gui;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Iterator;
 
-import javax.swing.JFrame;
+import javax.jmdns.ServiceInfo;
 import javax.swing.BoxLayout;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
-import java.awt.FlowLayout;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
-import com.adinneen.smokeStore.GamesOwned;
-import com.adinneen.smokeStore.GamesSummary;
-import com.adinneen.smokeStore.ListingRequest;
-import com.adinneen.smokeStore.OwnedGamesRequest;
-import com.adinneen.smokeStore.StoreGrpc;
-import com.adinneen.smokeStore.StoreGrpc.StoreBlockingStub;
-import com.adinneen.smokeStore.StoreGrpc.StoreStub;
 import com.adinneen.smokeLibrary.Game;
-import com.adinneen.smokeLibrary.GameInfo;
 import com.adinneen.smokeLibrary.GameRequest;
 import com.adinneen.smokeLibrary.LibraryGrpc;
 import com.adinneen.smokeLibrary.LibraryGrpc.LibraryBlockingStub;
 import com.adinneen.smokeLibrary.LibraryGrpc.LibraryStub;
-import com.adinneen.smokeLibrary.SimpleServiceDiscovery;
+import com.adinneen.smokeStore.GamesSummary;
+import com.adinneen.smokeStore.StoreGame;
+import com.adinneen.smokeStore.StoreGameRequest;
+import com.adinneen.smokeStore.StoreGrpc;
+import com.adinneen.smokeStore.StoreGrpc.StoreBlockingStub;
+import com.adinneen.smokeStore.StoreGrpc.StoreStub;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.stub.StreamObserver;
-
-import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.util.Iterator;
-import java.util.concurrent.TimeUnit;
-import java.awt.event.ActionEvent;
-
-import javax.jmdns.ServiceInfo;
 
 public class GUIApplication {
 
@@ -57,7 +45,7 @@ public class GUIApplication {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		
+
 		EventQueue.invokeLater(new Runnable() {
 			// overide the run method of runnable
 			public void run() {
@@ -78,34 +66,43 @@ public class GUIApplication {
 
 		ServiceInfo libraryServiceInfo;
 		ServiceInfo storeServiceInfo;
-		String serviceType = "_grpc._tcp.local.";
-		String serviceTypeStore = "_http._tcp.local.";
-		libraryServiceInfo = SimpleServiceDiscovery.run(serviceType);
-		storeServiceInfo = SimpleServiceDiscovery.run(serviceTypeStore);
-		int port = libraryServiceInfo.getPort();
-		int port2 = storeServiceInfo.getPort();
+//		String serviceType = "_grpc._tcp.local.";
+//		String serviceTypeStore = "_http._tcp.local.";
+//		libraryServiceInfo = SimpleServiceDiscovery.run(serviceType);
+//		storeServiceInfo = SimpleServiceDiscovery.run(serviceTypeStore);
+//		int port = libraryServiceInfo.getPort();
+//		int port2 = storeServiceInfo.getPort();
+		int port = 50051;
+		int port2 = 50052;
 		String host = "localhost";
-		
-		
+
 		ManagedChannel libraryChannel = ManagedChannelBuilder.forAddress(host, port).usePlaintext().build();
-		ManagedChannel storeChannel = ManagedChannelBuilder.forAddress(host, 50052).usePlaintext().build();
+		ManagedChannel storeChannel = ManagedChannelBuilder.forAddress(host, port2).usePlaintext().build();
 
 		// stubs -- generate from proto
 		libraryBlockingStub = LibraryGrpc.newBlockingStub(libraryChannel);
 		libraryStub = LibraryGrpc.newStub(libraryChannel);
 		storeStub = StoreGrpc.newStub(storeChannel);
 		storeBlockingStub = StoreGrpc.newBlockingStub(storeChannel);
-		
+
 		initialize();
 	}
-	
+
+	private String formatGame(Game game) {
+		String gameMessage = "";
+		gameMessage += "Title: " + game.getName() + "\n";
+		gameMessage += "Description: " + game.getDesc() + "\n";
+		gameMessage += "Installed: " + game.getName() + "\n\n";
+		return gameMessage;
+	}
+
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setTitle("Client - Service Controller");
-		frame.setBounds(100, 100, 1000, 600);
+		frame.setBounds(100, 100, 1500, 800);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		BoxLayout bl = new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS);
@@ -134,14 +131,14 @@ public class GUIApplication {
 		 * ------ Unary -----
 		 */
 
-		JLabel unaryPanelLabel = new JLabel(" Account Name ");
+		JLabel unaryPanelLabel = new JLabel(" Game Name ");
 		unaryPanel.add(unaryPanelLabel);
 
 		JTextField unaryTextField = new JTextField();
 		unaryPanel.add(unaryTextField);
 		unaryTextField.setColumns(10);
 
-		JTextArea unaryResponse = new JTextArea(3, 20);
+		JTextArea unaryResponse = new JTextArea(10, 40);
 		unaryResponse.setLineWrap(true);
 		unaryResponse.setWrapStyleWord(true);
 		unaryResponse.setEditable(false);
@@ -150,19 +147,21 @@ public class GUIApplication {
 		unaryButton.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-
 				String gameRequest = unaryTextField.getText();
-				GameRequest request = GameRequest.newBuilder().setAccountName(gameRequest).build();
-				GameInfo response = libraryBlockingStub.getGameInfo(request);
-				unaryResponse.append("reply:" + response.getMessage());
+				GameRequest request = GameRequest.newBuilder().setName(gameRequest).build();
+				Game response = libraryBlockingStub.getGameInfo(request);
+				if (response.getName().equals("Error")) {
+					unaryResponse.setText("No data for " + gameRequest);
+				} else {
+					unaryResponse.setText(formatGame(response));
+				}
 			}
 		});
 
 		JScrollPane scrollPane = new JScrollPane(unaryResponse);
 		unaryPanel.add(scrollPane);
-		
-		unaryPanel.add(unaryButton);
 
+		unaryPanel.add(unaryButton);
 
 		/*
 		 * ------ Client-side streaming -----
@@ -175,11 +174,11 @@ public class GUIApplication {
 		JTextField clientStreamTextField = new JTextField();
 		clientStreamPanel.add(clientStreamTextField);
 		clientStreamTextField.setColumns(10);
-		
-		JTextArea clientStreamResponse = new JTextArea(3, 20);
+
+		JTextArea clientStreamResponse = new JTextArea(10, 40);
 		clientStreamResponse.setLineWrap(true);
 		clientStreamResponse.setWrapStyleWord(true);
-		
+
 		JButton clientStreamButton = new JButton("Send Client-Side Stream Command");
 		clientStreamButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -190,8 +189,8 @@ public class GUIApplication {
 
 					@Override
 					public void onNext(GamesSummary value) {
-						System.out.println("Final Response from server " + value.getMessage());
-						clientStreamResponse.setText(value.getMessage());
+						System.out.println("Final Response from server " + value.getSummary());
+						clientStreamResponse.setText(value.getSummary());
 					}
 
 					@Override
@@ -202,11 +201,11 @@ public class GUIApplication {
 					public void onCompleted() {
 					}
 				};
-				
-				StreamObserver<ListingRequest> requestObserver = storeStub.getSummary(responseObserver);
-				
-				for(String listing : listings) {
-					ListingRequest storeRequest = ListingRequest.newBuilder().setGameList(listing).build();
+
+				StreamObserver<StoreGameRequest> requestObserver = storeStub.getSummary(responseObserver);
+
+				for (String listing : listings) {
+					StoreGameRequest storeRequest = StoreGameRequest.newBuilder().setName(listing).build();
 					requestObserver.onNext(storeRequest);
 				}
 
@@ -229,36 +228,41 @@ public class GUIApplication {
 		/*
 		 * ------ Server-side streaming -----
 		 */
-		JLabel serverStreamPanelLabel = new JLabel(" Account Name: ");
+		JLabel serverStreamPanelLabel = new JLabel("Game List: ");
 		serverStreamPanel.add(serverStreamPanelLabel);
 		frame.getContentPane().add(serverStreamPanel);
 		JTextField serverStreamTextField = new JTextField();
 		serverStreamPanel.add(serverStreamTextField);
 		serverStreamTextField.setColumns(10);
 		JButton serverStreamButton = new JButton("Send Server-Side Stream Command");
+
+		JTextArea serverStreamResponse = new JTextArea(10, 40);
+		serverStreamResponse.setLineWrap(true);
+		serverStreamResponse.setWrapStyleWord(true);
+
 		serverStreamButton.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-
 				String requestInput = serverStreamTextField.getText();
-				OwnedGamesRequest request = OwnedGamesRequest.newBuilder().setAccountName(requestInput).build();
+				StoreGameRequest request = StoreGameRequest.newBuilder().setName(requestInput).build();
+				serverStreamResponse.setText("");
 
-				Iterator<GamesOwned> response = storeBlockingStub.getOwned(request);
+				Iterator<StoreGame> response = storeBlockingStub.getOwned(request);
+				if (!response.hasNext()) {
+					serverStreamResponse.setText("None of the requested games were owned");
+				}
 				while (response.hasNext()) {
-					GamesOwned game = response.next();
-					System.out.println("Response: " + game.getMessage());
+					StoreGame game = response.next();
+					serverStreamResponse.append(game.getName() + " : owned");
+					serverStreamResponse.append("\n");
 				}
 			}
 		});
 
-		JTextArea serverStreamResponse = new JTextArea(3, 20);
-		serverStreamResponse.setLineWrap(true);
-		serverStreamResponse.setWrapStyleWord(true);
-
 		JScrollPane serverStreamScrollPane = new JScrollPane(serverStreamResponse);
 		serverStreamPanel.add(serverStreamScrollPane);
 		serverStreamPanel.add(serverStreamButton);
-		
+
 		/*
 		 * ------ Bidirectional Streaming -----
 		 */
@@ -270,7 +274,7 @@ public class GUIApplication {
 		bidirectionalPanel.add(bidirectionalTextField);
 		bidirectionalTextField.setColumns(10);
 
-		JTextArea bidirectionalResponse = new JTextArea(3, 20);
+		JTextArea bidirectionalResponse = new JTextArea(10, 40);
 		bidirectionalResponse.setLineWrap(true);
 		bidirectionalResponse.setWrapStyleWord(true);
 		bidirectionalResponse.setEditable(false);
@@ -279,6 +283,7 @@ public class GUIApplication {
 		bidirectionalButton.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
+				bidirectionalResponse.setText("");
 				String gamesInput = bidirectionalTextField.getText();
 				String[] games = gamesInput.split(",");
 				StreamObserver<Game> responseObserver = new StreamObserver<Game>() {
@@ -286,7 +291,8 @@ public class GUIApplication {
 					@Override
 					public void onNext(Game value) {
 						System.out.println("Final Response from server " + value.getName());
-						bidirectionalResponse.setText(value.getName());
+
+						bidirectionalResponse.append(value.getName() + "\n");
 					}
 
 					@Override
@@ -298,11 +304,10 @@ public class GUIApplication {
 					}
 				};
 				System.out.println("Response Observer " + responseObserver.toString());
-				StreamObserver<Game> requestObserver = libraryStub.getInstalledGames(responseObserver);
-				
-				for(String game : games) {
-					System.out.println(game);
-					Game gameRequest = Game.newBuilder().setName(game).build();
+				StreamObserver<GameRequest> requestObserver = libraryStub.getInstalledGames(responseObserver);
+
+				for (String game : games) {
+					GameRequest gameRequest = GameRequest.newBuilder().setName(game.trim()).build();
 					requestObserver.onNext(gameRequest);
 				}
 
@@ -320,7 +325,7 @@ public class GUIApplication {
 
 		JScrollPane bidirectionalScrollPane = new JScrollPane(bidirectionalResponse);
 		bidirectionalPanel.add(bidirectionalScrollPane);
-		
+
 		bidirectionalPanel.add(bidirectionalButton);
 	}
 }

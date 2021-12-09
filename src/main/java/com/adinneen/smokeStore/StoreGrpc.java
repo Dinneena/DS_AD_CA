@@ -27,28 +27,28 @@ public final class StoreGrpc {
   public static final String SERVICE_NAME = "smokeStore.Store";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<com.adinneen.smokeStore.ListingRequest,
+  private static volatile io.grpc.MethodDescriptor<com.adinneen.smokeStore.StoreGameRequest,
       com.adinneen.smokeStore.GamesSummary> getGetSummaryMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "getSummary",
-      requestType = com.adinneen.smokeStore.ListingRequest.class,
+      requestType = com.adinneen.smokeStore.StoreGameRequest.class,
       responseType = com.adinneen.smokeStore.GamesSummary.class,
       methodType = io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
-  public static io.grpc.MethodDescriptor<com.adinneen.smokeStore.ListingRequest,
+  public static io.grpc.MethodDescriptor<com.adinneen.smokeStore.StoreGameRequest,
       com.adinneen.smokeStore.GamesSummary> getGetSummaryMethod() {
-    io.grpc.MethodDescriptor<com.adinneen.smokeStore.ListingRequest, com.adinneen.smokeStore.GamesSummary> getGetSummaryMethod;
+    io.grpc.MethodDescriptor<com.adinneen.smokeStore.StoreGameRequest, com.adinneen.smokeStore.GamesSummary> getGetSummaryMethod;
     if ((getGetSummaryMethod = StoreGrpc.getGetSummaryMethod) == null) {
       synchronized (StoreGrpc.class) {
         if ((getGetSummaryMethod = StoreGrpc.getGetSummaryMethod) == null) {
           StoreGrpc.getGetSummaryMethod = getGetSummaryMethod = 
-              io.grpc.MethodDescriptor.<com.adinneen.smokeStore.ListingRequest, com.adinneen.smokeStore.GamesSummary>newBuilder()
+              io.grpc.MethodDescriptor.<com.adinneen.smokeStore.StoreGameRequest, com.adinneen.smokeStore.GamesSummary>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
               .setFullMethodName(generateFullMethodName(
                   "smokeStore.Store", "getSummary"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.adinneen.smokeStore.ListingRequest.getDefaultInstance()))
+                  com.adinneen.smokeStore.StoreGameRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.adinneen.smokeStore.GamesSummary.getDefaultInstance()))
                   .setSchemaDescriptor(new StoreMethodDescriptorSupplier("getSummary"))
@@ -59,30 +59,30 @@ public final class StoreGrpc {
      return getGetSummaryMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.adinneen.smokeStore.OwnedGamesRequest,
-      com.adinneen.smokeStore.GamesOwned> getGetOwnedMethod;
+  private static volatile io.grpc.MethodDescriptor<com.adinneen.smokeStore.StoreGameRequest,
+      com.adinneen.smokeStore.StoreGame> getGetOwnedMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "getOwned",
-      requestType = com.adinneen.smokeStore.OwnedGamesRequest.class,
-      responseType = com.adinneen.smokeStore.GamesOwned.class,
+      requestType = com.adinneen.smokeStore.StoreGameRequest.class,
+      responseType = com.adinneen.smokeStore.StoreGame.class,
       methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
-  public static io.grpc.MethodDescriptor<com.adinneen.smokeStore.OwnedGamesRequest,
-      com.adinneen.smokeStore.GamesOwned> getGetOwnedMethod() {
-    io.grpc.MethodDescriptor<com.adinneen.smokeStore.OwnedGamesRequest, com.adinneen.smokeStore.GamesOwned> getGetOwnedMethod;
+  public static io.grpc.MethodDescriptor<com.adinneen.smokeStore.StoreGameRequest,
+      com.adinneen.smokeStore.StoreGame> getGetOwnedMethod() {
+    io.grpc.MethodDescriptor<com.adinneen.smokeStore.StoreGameRequest, com.adinneen.smokeStore.StoreGame> getGetOwnedMethod;
     if ((getGetOwnedMethod = StoreGrpc.getGetOwnedMethod) == null) {
       synchronized (StoreGrpc.class) {
         if ((getGetOwnedMethod = StoreGrpc.getGetOwnedMethod) == null) {
           StoreGrpc.getGetOwnedMethod = getGetOwnedMethod = 
-              io.grpc.MethodDescriptor.<com.adinneen.smokeStore.OwnedGamesRequest, com.adinneen.smokeStore.GamesOwned>newBuilder()
+              io.grpc.MethodDescriptor.<com.adinneen.smokeStore.StoreGameRequest, com.adinneen.smokeStore.StoreGame>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
               .setFullMethodName(generateFullMethodName(
                   "smokeStore.Store", "getOwned"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.adinneen.smokeStore.OwnedGamesRequest.getDefaultInstance()))
+                  com.adinneen.smokeStore.StoreGameRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.adinneen.smokeStore.GamesOwned.getDefaultInstance()))
+                  com.adinneen.smokeStore.StoreGame.getDefaultInstance()))
                   .setSchemaDescriptor(new StoreMethodDescriptorSupplier("getOwned"))
                   .build();
           }
@@ -123,7 +123,7 @@ public final class StoreGrpc {
      *Client-side streaming
      * </pre>
      */
-    public io.grpc.stub.StreamObserver<com.adinneen.smokeStore.ListingRequest> getSummary(
+    public io.grpc.stub.StreamObserver<com.adinneen.smokeStore.StoreGameRequest> getSummary(
         io.grpc.stub.StreamObserver<com.adinneen.smokeStore.GamesSummary> responseObserver) {
       return asyncUnimplementedStreamingCall(getGetSummaryMethod(), responseObserver);
     }
@@ -133,8 +133,8 @@ public final class StoreGrpc {
      *Server-side streaming
      * </pre>
      */
-    public void getOwned(com.adinneen.smokeStore.OwnedGamesRequest request,
-        io.grpc.stub.StreamObserver<com.adinneen.smokeStore.GamesOwned> responseObserver) {
+    public void getOwned(com.adinneen.smokeStore.StoreGameRequest request,
+        io.grpc.stub.StreamObserver<com.adinneen.smokeStore.StoreGame> responseObserver) {
       asyncUnimplementedUnaryCall(getGetOwnedMethod(), responseObserver);
     }
 
@@ -144,15 +144,15 @@ public final class StoreGrpc {
             getGetSummaryMethod(),
             asyncClientStreamingCall(
               new MethodHandlers<
-                com.adinneen.smokeStore.ListingRequest,
+                com.adinneen.smokeStore.StoreGameRequest,
                 com.adinneen.smokeStore.GamesSummary>(
                   this, METHODID_GET_SUMMARY)))
           .addMethod(
             getGetOwnedMethod(),
             asyncServerStreamingCall(
               new MethodHandlers<
-                com.adinneen.smokeStore.OwnedGamesRequest,
-                com.adinneen.smokeStore.GamesOwned>(
+                com.adinneen.smokeStore.StoreGameRequest,
+                com.adinneen.smokeStore.StoreGame>(
                   this, METHODID_GET_OWNED)))
           .build();
     }
@@ -181,7 +181,7 @@ public final class StoreGrpc {
      *Client-side streaming
      * </pre>
      */
-    public io.grpc.stub.StreamObserver<com.adinneen.smokeStore.ListingRequest> getSummary(
+    public io.grpc.stub.StreamObserver<com.adinneen.smokeStore.StoreGameRequest> getSummary(
         io.grpc.stub.StreamObserver<com.adinneen.smokeStore.GamesSummary> responseObserver) {
       return asyncClientStreamingCall(
           getChannel().newCall(getGetSummaryMethod(), getCallOptions()), responseObserver);
@@ -192,8 +192,8 @@ public final class StoreGrpc {
      *Server-side streaming
      * </pre>
      */
-    public void getOwned(com.adinneen.smokeStore.OwnedGamesRequest request,
-        io.grpc.stub.StreamObserver<com.adinneen.smokeStore.GamesOwned> responseObserver) {
+    public void getOwned(com.adinneen.smokeStore.StoreGameRequest request,
+        io.grpc.stub.StreamObserver<com.adinneen.smokeStore.StoreGame> responseObserver) {
       asyncServerStreamingCall(
           getChannel().newCall(getGetOwnedMethod(), getCallOptions()), request, responseObserver);
     }
@@ -222,8 +222,8 @@ public final class StoreGrpc {
      *Server-side streaming
      * </pre>
      */
-    public java.util.Iterator<com.adinneen.smokeStore.GamesOwned> getOwned(
-        com.adinneen.smokeStore.OwnedGamesRequest request) {
+    public java.util.Iterator<com.adinneen.smokeStore.StoreGame> getOwned(
+        com.adinneen.smokeStore.StoreGameRequest request) {
       return blockingServerStreamingCall(
           getChannel(), getGetOwnedMethod(), getCallOptions(), request);
     }
@@ -269,8 +269,8 @@ public final class StoreGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_GET_OWNED:
-          serviceImpl.getOwned((com.adinneen.smokeStore.OwnedGamesRequest) request,
-              (io.grpc.stub.StreamObserver<com.adinneen.smokeStore.GamesOwned>) responseObserver);
+          serviceImpl.getOwned((com.adinneen.smokeStore.StoreGameRequest) request,
+              (io.grpc.stub.StreamObserver<com.adinneen.smokeStore.StoreGame>) responseObserver);
           break;
         default:
           throw new AssertionError();

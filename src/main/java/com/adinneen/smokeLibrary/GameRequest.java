@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private GameRequest() {
-    accountName_ = "";
+    name_ = "";
   }
 
   @java.lang.Override
@@ -46,7 +46,7 @@ private static final long serialVersionUID = 0L;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            accountName_ = s;
+            name_ = s;
             break;
           }
           default: {
@@ -81,34 +81,34 @@ private static final long serialVersionUID = 0L;
             com.adinneen.smokeLibrary.GameRequest.class, com.adinneen.smokeLibrary.GameRequest.Builder.class);
   }
 
-  public static final int ACCOUNTNAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object accountName_;
+  public static final int NAME_FIELD_NUMBER = 1;
+  private volatile java.lang.Object name_;
   /**
-   * <code>string accountName = 1;</code>
+   * <code>string name = 1;</code>
    */
-  public java.lang.String getAccountName() {
-    java.lang.Object ref = accountName_;
+  public java.lang.String getName() {
+    java.lang.Object ref = name_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      accountName_ = s;
+      name_ = s;
       return s;
     }
   }
   /**
-   * <code>string accountName = 1;</code>
+   * <code>string name = 1;</code>
    */
   public com.google.protobuf.ByteString
-      getAccountNameBytes() {
-    java.lang.Object ref = accountName_;
+      getNameBytes() {
+    java.lang.Object ref = name_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      accountName_ = b;
+      name_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -129,8 +129,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getAccountNameBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, accountName_);
+    if (!getNameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
     }
     unknownFields.writeTo(output);
   }
@@ -141,8 +141,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getAccountNameBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, accountName_);
+    if (!getNameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -160,8 +160,8 @@ private static final long serialVersionUID = 0L;
     com.adinneen.smokeLibrary.GameRequest other = (com.adinneen.smokeLibrary.GameRequest) obj;
 
     boolean result = true;
-    result = result && getAccountName()
-        .equals(other.getAccountName());
+    result = result && getName()
+        .equals(other.getName());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -173,8 +173,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + ACCOUNTNAME_FIELD_NUMBER;
-    hash = (53 * hash) + getAccountName().hashCode();
+    hash = (37 * hash) + NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getName().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -308,7 +308,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      accountName_ = "";
+      name_ = "";
 
       return this;
     }
@@ -336,7 +336,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.adinneen.smokeLibrary.GameRequest buildPartial() {
       com.adinneen.smokeLibrary.GameRequest result = new com.adinneen.smokeLibrary.GameRequest(this);
-      result.accountName_ = accountName_;
+      result.name_ = name_;
       onBuilt();
       return result;
     }
@@ -385,8 +385,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.adinneen.smokeLibrary.GameRequest other) {
       if (other == com.adinneen.smokeLibrary.GameRequest.getDefaultInstance()) return this;
-      if (!other.getAccountName().isEmpty()) {
-        accountName_ = other.accountName_;
+      if (!other.getName().isEmpty()) {
+        name_ = other.name_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -418,71 +418,71 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object accountName_ = "";
+    private java.lang.Object name_ = "";
     /**
-     * <code>string accountName = 1;</code>
+     * <code>string name = 1;</code>
      */
-    public java.lang.String getAccountName() {
-      java.lang.Object ref = accountName_;
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        accountName_ = s;
+        name_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string accountName = 1;</code>
+     * <code>string name = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getAccountNameBytes() {
-      java.lang.Object ref = accountName_;
+        getNameBytes() {
+      java.lang.Object ref = name_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        accountName_ = b;
+        name_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string accountName = 1;</code>
+     * <code>string name = 1;</code>
      */
-    public Builder setAccountName(
+    public Builder setName(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      accountName_ = value;
+      name_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string accountName = 1;</code>
+     * <code>string name = 1;</code>
      */
-    public Builder clearAccountName() {
+    public Builder clearName() {
       
-      accountName_ = getDefaultInstance().getAccountName();
+      name_ = getDefaultInstance().getName();
       onChanged();
       return this;
     }
     /**
-     * <code>string accountName = 1;</code>
+     * <code>string name = 1;</code>
      */
-    public Builder setAccountNameBytes(
+    public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      accountName_ = value;
+      name_ = value;
       onChanged();
       return this;
     }

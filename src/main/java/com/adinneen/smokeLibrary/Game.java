@@ -17,6 +17,8 @@ private static final long serialVersionUID = 0L;
   }
   private Game() {
     name_ = "";
+    desc_ = "";
+    installed_ = false;
   }
 
   @java.lang.Override
@@ -47,6 +49,17 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             name_ = s;
+            break;
+          }
+          case 18: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            desc_ = s;
+            break;
+          }
+          case 24: {
+
+            installed_ = input.readBool();
             break;
           }
           default: {
@@ -115,6 +128,49 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int DESC_FIELD_NUMBER = 2;
+  private volatile java.lang.Object desc_;
+  /**
+   * <code>string desc = 2;</code>
+   */
+  public java.lang.String getDesc() {
+    java.lang.Object ref = desc_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      desc_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string desc = 2;</code>
+   */
+  public com.google.protobuf.ByteString
+      getDescBytes() {
+    java.lang.Object ref = desc_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      desc_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int INSTALLED_FIELD_NUMBER = 3;
+  private boolean installed_;
+  /**
+   * <code>bool installed = 3;</code>
+   */
+  public boolean getInstalled() {
+    return installed_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -132,6 +188,12 @@ private static final long serialVersionUID = 0L;
     if (!getNameBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
     }
+    if (!getDescBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, desc_);
+    }
+    if (installed_ != false) {
+      output.writeBool(3, installed_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -143,6 +205,13 @@ private static final long serialVersionUID = 0L;
     size = 0;
     if (!getNameBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+    }
+    if (!getDescBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, desc_);
+    }
+    if (installed_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(3, installed_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -162,6 +231,10 @@ private static final long serialVersionUID = 0L;
     boolean result = true;
     result = result && getName()
         .equals(other.getName());
+    result = result && getDesc()
+        .equals(other.getDesc());
+    result = result && (getInstalled()
+        == other.getInstalled());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -175,6 +248,11 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + NAME_FIELD_NUMBER;
     hash = (53 * hash) + getName().hashCode();
+    hash = (37 * hash) + DESC_FIELD_NUMBER;
+    hash = (53 * hash) + getDesc().hashCode();
+    hash = (37 * hash) + INSTALLED_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getInstalled());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -310,6 +388,10 @@ private static final long serialVersionUID = 0L;
       super.clear();
       name_ = "";
 
+      desc_ = "";
+
+      installed_ = false;
+
       return this;
     }
 
@@ -337,6 +419,8 @@ private static final long serialVersionUID = 0L;
     public com.adinneen.smokeLibrary.Game buildPartial() {
       com.adinneen.smokeLibrary.Game result = new com.adinneen.smokeLibrary.Game(this);
       result.name_ = name_;
+      result.desc_ = desc_;
+      result.installed_ = installed_;
       onBuilt();
       return result;
     }
@@ -388,6 +472,13 @@ private static final long serialVersionUID = 0L;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
         onChanged();
+      }
+      if (!other.getDesc().isEmpty()) {
+        desc_ = other.desc_;
+        onChanged();
+      }
+      if (other.getInstalled() != false) {
+        setInstalled(other.getInstalled());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -483,6 +574,101 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       name_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object desc_ = "";
+    /**
+     * <code>string desc = 2;</code>
+     */
+    public java.lang.String getDesc() {
+      java.lang.Object ref = desc_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        desc_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string desc = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDescBytes() {
+      java.lang.Object ref = desc_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        desc_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string desc = 2;</code>
+     */
+    public Builder setDesc(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      desc_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string desc = 2;</code>
+     */
+    public Builder clearDesc() {
+      
+      desc_ = getDefaultInstance().getDesc();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string desc = 2;</code>
+     */
+    public Builder setDescBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      desc_ = value;
+      onChanged();
+      return this;
+    }
+
+    private boolean installed_ ;
+    /**
+     * <code>bool installed = 3;</code>
+     */
+    public boolean getInstalled() {
+      return installed_;
+    }
+    /**
+     * <code>bool installed = 3;</code>
+     */
+    public Builder setInstalled(boolean value) {
+      
+      installed_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool installed = 3;</code>
+     */
+    public Builder clearInstalled() {
+      
+      installed_ = false;
       onChanged();
       return this;
     }

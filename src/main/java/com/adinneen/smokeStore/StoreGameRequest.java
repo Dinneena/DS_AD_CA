@@ -4,19 +4,19 @@
 package com.adinneen.smokeStore;
 
 /**
- * Protobuf type {@code smokeStore.GamesOwned}
+ * Protobuf type {@code smokeStore.StoreGameRequest}
  */
-public  final class GamesOwned extends
+public  final class StoreGameRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:smokeStore.GamesOwned)
-    GamesOwnedOrBuilder {
+    // @@protoc_insertion_point(message_implements:smokeStore.StoreGameRequest)
+    StoreGameRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use GamesOwned.newBuilder() to construct.
-  private GamesOwned(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use StoreGameRequest.newBuilder() to construct.
+  private StoreGameRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private GamesOwned() {
-    message_ = "";
+  private StoreGameRequest() {
+    name_ = "";
   }
 
   @java.lang.Override
@@ -24,7 +24,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private GamesOwned(
+  private StoreGameRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -46,7 +46,7 @@ private static final long serialVersionUID = 0L;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            message_ = s;
+            name_ = s;
             break;
           }
           default: {
@@ -70,45 +70,45 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.adinneen.smokeStore.SmokeStoreProto.internal_static_smokeStore_GamesOwned_descriptor;
+    return com.adinneen.smokeStore.SmokeStoreProto.internal_static_smokeStore_StoreGameRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.adinneen.smokeStore.SmokeStoreProto.internal_static_smokeStore_GamesOwned_fieldAccessorTable
+    return com.adinneen.smokeStore.SmokeStoreProto.internal_static_smokeStore_StoreGameRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.adinneen.smokeStore.GamesOwned.class, com.adinneen.smokeStore.GamesOwned.Builder.class);
+            com.adinneen.smokeStore.StoreGameRequest.class, com.adinneen.smokeStore.StoreGameRequest.Builder.class);
   }
 
-  public static final int MESSAGE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object message_;
+  public static final int NAME_FIELD_NUMBER = 1;
+  private volatile java.lang.Object name_;
   /**
-   * <code>string message = 1;</code>
+   * <code>string name = 1;</code>
    */
-  public java.lang.String getMessage() {
-    java.lang.Object ref = message_;
+  public java.lang.String getName() {
+    java.lang.Object ref = name_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      message_ = s;
+      name_ = s;
       return s;
     }
   }
   /**
-   * <code>string message = 1;</code>
+   * <code>string name = 1;</code>
    */
   public com.google.protobuf.ByteString
-      getMessageBytes() {
-    java.lang.Object ref = message_;
+      getNameBytes() {
+    java.lang.Object ref = name_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      message_ = b;
+      name_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -129,8 +129,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getMessageBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, message_);
+    if (!getNameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
     }
     unknownFields.writeTo(output);
   }
@@ -141,8 +141,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getMessageBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, message_);
+    if (!getNameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -154,14 +154,14 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.adinneen.smokeStore.GamesOwned)) {
+    if (!(obj instanceof com.adinneen.smokeStore.StoreGameRequest)) {
       return super.equals(obj);
     }
-    com.adinneen.smokeStore.GamesOwned other = (com.adinneen.smokeStore.GamesOwned) obj;
+    com.adinneen.smokeStore.StoreGameRequest other = (com.adinneen.smokeStore.StoreGameRequest) obj;
 
     boolean result = true;
-    result = result && getMessage()
-        .equals(other.getMessage());
+    result = result && getName()
+        .equals(other.getName());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -173,76 +173,76 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
-    hash = (53 * hash) + getMessage().hashCode();
+    hash = (37 * hash) + NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getName().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static com.adinneen.smokeStore.GamesOwned parseFrom(
+  public static com.adinneen.smokeStore.StoreGameRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.adinneen.smokeStore.GamesOwned parseFrom(
+  public static com.adinneen.smokeStore.StoreGameRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.adinneen.smokeStore.GamesOwned parseFrom(
+  public static com.adinneen.smokeStore.StoreGameRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.adinneen.smokeStore.GamesOwned parseFrom(
+  public static com.adinneen.smokeStore.StoreGameRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.adinneen.smokeStore.GamesOwned parseFrom(byte[] data)
+  public static com.adinneen.smokeStore.StoreGameRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.adinneen.smokeStore.GamesOwned parseFrom(
+  public static com.adinneen.smokeStore.StoreGameRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.adinneen.smokeStore.GamesOwned parseFrom(java.io.InputStream input)
+  public static com.adinneen.smokeStore.StoreGameRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.adinneen.smokeStore.GamesOwned parseFrom(
+  public static com.adinneen.smokeStore.StoreGameRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.adinneen.smokeStore.GamesOwned parseDelimitedFrom(java.io.InputStream input)
+  public static com.adinneen.smokeStore.StoreGameRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.adinneen.smokeStore.GamesOwned parseDelimitedFrom(
+  public static com.adinneen.smokeStore.StoreGameRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.adinneen.smokeStore.GamesOwned parseFrom(
+  public static com.adinneen.smokeStore.StoreGameRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.adinneen.smokeStore.GamesOwned parseFrom(
+  public static com.adinneen.smokeStore.StoreGameRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -255,7 +255,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.adinneen.smokeStore.GamesOwned prototype) {
+  public static Builder newBuilder(com.adinneen.smokeStore.StoreGameRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -271,26 +271,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code smokeStore.GamesOwned}
+   * Protobuf type {@code smokeStore.StoreGameRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:smokeStore.GamesOwned)
-      com.adinneen.smokeStore.GamesOwnedOrBuilder {
+      // @@protoc_insertion_point(builder_implements:smokeStore.StoreGameRequest)
+      com.adinneen.smokeStore.StoreGameRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.adinneen.smokeStore.SmokeStoreProto.internal_static_smokeStore_GamesOwned_descriptor;
+      return com.adinneen.smokeStore.SmokeStoreProto.internal_static_smokeStore_StoreGameRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.adinneen.smokeStore.SmokeStoreProto.internal_static_smokeStore_GamesOwned_fieldAccessorTable
+      return com.adinneen.smokeStore.SmokeStoreProto.internal_static_smokeStore_StoreGameRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.adinneen.smokeStore.GamesOwned.class, com.adinneen.smokeStore.GamesOwned.Builder.class);
+              com.adinneen.smokeStore.StoreGameRequest.class, com.adinneen.smokeStore.StoreGameRequest.Builder.class);
     }
 
-    // Construct using com.adinneen.smokeStore.GamesOwned.newBuilder()
+    // Construct using com.adinneen.smokeStore.StoreGameRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -308,7 +308,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      message_ = "";
+      name_ = "";
 
       return this;
     }
@@ -316,17 +316,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.adinneen.smokeStore.SmokeStoreProto.internal_static_smokeStore_GamesOwned_descriptor;
+      return com.adinneen.smokeStore.SmokeStoreProto.internal_static_smokeStore_StoreGameRequest_descriptor;
     }
 
     @java.lang.Override
-    public com.adinneen.smokeStore.GamesOwned getDefaultInstanceForType() {
-      return com.adinneen.smokeStore.GamesOwned.getDefaultInstance();
+    public com.adinneen.smokeStore.StoreGameRequest getDefaultInstanceForType() {
+      return com.adinneen.smokeStore.StoreGameRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.adinneen.smokeStore.GamesOwned build() {
-      com.adinneen.smokeStore.GamesOwned result = buildPartial();
+    public com.adinneen.smokeStore.StoreGameRequest build() {
+      com.adinneen.smokeStore.StoreGameRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -334,9 +334,9 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.adinneen.smokeStore.GamesOwned buildPartial() {
-      com.adinneen.smokeStore.GamesOwned result = new com.adinneen.smokeStore.GamesOwned(this);
-      result.message_ = message_;
+    public com.adinneen.smokeStore.StoreGameRequest buildPartial() {
+      com.adinneen.smokeStore.StoreGameRequest result = new com.adinneen.smokeStore.StoreGameRequest(this);
+      result.name_ = name_;
       onBuilt();
       return result;
     }
@@ -375,18 +375,18 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.adinneen.smokeStore.GamesOwned) {
-        return mergeFrom((com.adinneen.smokeStore.GamesOwned)other);
+      if (other instanceof com.adinneen.smokeStore.StoreGameRequest) {
+        return mergeFrom((com.adinneen.smokeStore.StoreGameRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.adinneen.smokeStore.GamesOwned other) {
-      if (other == com.adinneen.smokeStore.GamesOwned.getDefaultInstance()) return this;
-      if (!other.getMessage().isEmpty()) {
-        message_ = other.message_;
+    public Builder mergeFrom(com.adinneen.smokeStore.StoreGameRequest other) {
+      if (other == com.adinneen.smokeStore.StoreGameRequest.getDefaultInstance()) return this;
+      if (!other.getName().isEmpty()) {
+        name_ = other.name_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -404,11 +404,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.adinneen.smokeStore.GamesOwned parsedMessage = null;
+      com.adinneen.smokeStore.StoreGameRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.adinneen.smokeStore.GamesOwned) e.getUnfinishedMessage();
+        parsedMessage = (com.adinneen.smokeStore.StoreGameRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -418,71 +418,71 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object message_ = "";
+    private java.lang.Object name_ = "";
     /**
-     * <code>string message = 1;</code>
+     * <code>string name = 1;</code>
      */
-    public java.lang.String getMessage() {
-      java.lang.Object ref = message_;
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        message_ = s;
+        name_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string message = 1;</code>
+     * <code>string name = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getMessageBytes() {
-      java.lang.Object ref = message_;
+        getNameBytes() {
+      java.lang.Object ref = name_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        message_ = b;
+        name_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string message = 1;</code>
+     * <code>string name = 1;</code>
      */
-    public Builder setMessage(
+    public Builder setName(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      message_ = value;
+      name_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string message = 1;</code>
+     * <code>string name = 1;</code>
      */
-    public Builder clearMessage() {
+    public Builder clearName() {
       
-      message_ = getDefaultInstance().getMessage();
+      name_ = getDefaultInstance().getName();
       onChanged();
       return this;
     }
     /**
-     * <code>string message = 1;</code>
+     * <code>string name = 1;</code>
      */
-    public Builder setMessageBytes(
+    public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      message_ = value;
+      name_ = value;
       onChanged();
       return this;
     }
@@ -499,41 +499,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:smokeStore.GamesOwned)
+    // @@protoc_insertion_point(builder_scope:smokeStore.StoreGameRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:smokeStore.GamesOwned)
-  private static final com.adinneen.smokeStore.GamesOwned DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:smokeStore.StoreGameRequest)
+  private static final com.adinneen.smokeStore.StoreGameRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.adinneen.smokeStore.GamesOwned();
+    DEFAULT_INSTANCE = new com.adinneen.smokeStore.StoreGameRequest();
   }
 
-  public static com.adinneen.smokeStore.GamesOwned getDefaultInstance() {
+  public static com.adinneen.smokeStore.StoreGameRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<GamesOwned>
-      PARSER = new com.google.protobuf.AbstractParser<GamesOwned>() {
+  private static final com.google.protobuf.Parser<StoreGameRequest>
+      PARSER = new com.google.protobuf.AbstractParser<StoreGameRequest>() {
     @java.lang.Override
-    public GamesOwned parsePartialFrom(
+    public StoreGameRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GamesOwned(input, extensionRegistry);
+      return new StoreGameRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<GamesOwned> parser() {
+  public static com.google.protobuf.Parser<StoreGameRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<GamesOwned> getParserForType() {
+  public com.google.protobuf.Parser<StoreGameRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.adinneen.smokeStore.GamesOwned getDefaultInstanceForType() {
+  public com.adinneen.smokeStore.StoreGameRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

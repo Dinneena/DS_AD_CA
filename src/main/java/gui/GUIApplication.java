@@ -76,11 +76,17 @@ public class GUIApplication {
 	 */
 	public GUIApplication() {
 
-		ServiceInfo serviceInfo;
+		ServiceInfo libraryServiceInfo;
+		ServiceInfo storeServiceInfo;
 		String serviceType = "_grpc._tcp.local.";
-		serviceInfo = SimpleServiceDiscovery.run(serviceType);
-		int port = serviceInfo.getPort();
+		String serviceTypeStore = "_http._tcp.local.";
+		libraryServiceInfo = SimpleServiceDiscovery.run(serviceType);
+		storeServiceInfo = SimpleServiceDiscovery.run(serviceTypeStore);
+		int port = libraryServiceInfo.getPort();
+		int port2 = storeServiceInfo.getPort();
 		String host = "localhost";
+		
+		
 		ManagedChannel libraryChannel = ManagedChannelBuilder.forAddress(host, port).usePlaintext().build();
 		ManagedChannel storeChannel = ManagedChannelBuilder.forAddress(host, 50052).usePlaintext().build();
 

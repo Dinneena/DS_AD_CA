@@ -14,11 +14,11 @@ public class StoreServer extends StoreImplBase {
 	static HashMap storeMap;
 	
 	public static void main(String[] args) {
-		int port = 50052;
-		String serviceType = "_grpc._tcp.local.";
+		int port2 = 50052;
+		String serviceType = "_http._tcp.local.";
 		String serviceName = "GrpcLibraryServer";
 		SimpleServiceRegistration ssr = new SimpleServiceRegistration();
-		ssr.run(port, serviceType, serviceName);
+		ssr.run(port2, serviceType, serviceName);
 		
 		StoreServer storeServer = new StoreServer();
 
@@ -38,7 +38,7 @@ public class StoreServer extends StoreImplBase {
 		String[] counterStrike = {"Counter Strike","CS: GO expands upon the team-based action gameplay that it pioneered when it was launched 19 years ago.", "Price: Free", "Owned" };
 		
 		storeMap.put("Dark Souls", Arrays.asList(darkSouls));
-		storeMap.put("Bioshocks", Arrays.asList(Bioshock));
+		storeMap.put("Bioshock", Arrays.asList(Bioshock));
 		storeMap.put("Bioshock Infinate", Arrays.asList(bioshockInfinate));
 		storeMap.put("Dishonored", Arrays.asList(dishonored));
 		storeMap.put("Prey", Arrays.asList(prey));
@@ -51,7 +51,7 @@ public class StoreServer extends StoreImplBase {
 		
 		
 		try {
-			Server server = ServerBuilder.forPort(port).addService(storeServer).build().start();
+			Server server = ServerBuilder.forPort(port2).addService(storeServer).build().start();
 			System.out.println("Store Server Started!");
 			server.awaitTermination();
 		} catch (Exception e) {
@@ -66,13 +66,13 @@ public class StoreServer extends StoreImplBase {
 	@Override
 	public StreamObserver<ListingRequest> getSummary(StreamObserver<GamesSummary> responseObserver) {
 		System.out.println("On Server; Inside Streaming Method");
-		ArrayList<String> responses = new ArrayList<>();
+		ArrayList<ArrayList<String>> responses = new ArrayList<>();
 		return new StreamObserver<ListingRequest>() {
 
 			@Override
 			public void onNext(ListingRequest value) {
 				// TODO Auto-generated method stub
-				responses.add((String) storeMap.get(value.getGameList()));
+				responses.add((ArrayList<String>) storeMap.get(value.getGameList()));
 				System.out.println("Value message received from client: " + value.getGameList());
 			}
 

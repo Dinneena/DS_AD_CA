@@ -32,7 +32,7 @@ public class StoreServer extends StoreImplBase {
 				"BioShock is a shooter unlike any you've ever played, loaded with weapons and tactics never seen.",
 				"true" };
 		String[] bioshockInfinite = { "Bioshock Infinite",
-				"Indebted to the wrong people, with his life on the line, Booker DeWitt has only one opportunity to wipe his slate clean.", };
+				"Indebted to the wrong people, with his life on the line, Booker DeWitt has only one opportunity to wipe his slate clean.", "false" };
 		String[] dishonored = { "Dishonored",
 				"Dishonored is an immersive first-person action StoreGame that casts you as a supernatural assassin driven by revenge.",
 				"true" };

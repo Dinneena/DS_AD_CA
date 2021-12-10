@@ -205,7 +205,7 @@ public class GUIApplication {
 				StreamObserver<StoreGameRequest> requestObserver = storeStub.getSummary(responseObserver);
 
 				for (String listing : listings) {
-					StoreGameRequest storeRequest = StoreGameRequest.newBuilder().setName(listing).build();
+					StoreGameRequest storeRequest = StoreGameRequest.newBuilder().setName(listing.trim()).build();
 					requestObserver.onNext(storeRequest);
 				}
 

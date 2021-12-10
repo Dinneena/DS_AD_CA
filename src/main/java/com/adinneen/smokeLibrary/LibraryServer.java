@@ -19,8 +19,8 @@ public class LibraryServer extends LibraryImplBase {
 		int port = 50051;
 		String serviceType = "_grpc._tcp.local.";
 		String serviceName = "GrpcLibraryServer";
-//		SimpleServiceRegistration ssr = new SimpleServiceRegistration();
-//		ssr.run(port, serviceType, serviceName);
+		SimpleServiceRegistration ssr = new SimpleServiceRegistration();
+		ssr.run(port, serviceType, serviceName);
 
 		LibraryServer libraryServer = new LibraryServer();
 		libraryMap = new HashMap<String, List<String>>();

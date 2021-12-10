@@ -21,6 +21,7 @@ import com.adinneen.smokeLibrary.GameRequest;
 import com.adinneen.smokeLibrary.LibraryGrpc;
 import com.adinneen.smokeLibrary.LibraryGrpc.LibraryBlockingStub;
 import com.adinneen.smokeLibrary.LibraryGrpc.LibraryStub;
+import com.adinneen.smokeLibrary.SimpleServiceDiscovery;
 import com.adinneen.smokeStore.GamesSummary;
 import com.adinneen.smokeStore.StoreGame;
 import com.adinneen.smokeStore.StoreGameRequest;
@@ -31,6 +32,8 @@ import com.adinneen.smokeStore.StoreGrpc.StoreStub;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.stub.StreamObserver;
+
+import javax.jmdns.ServiceInfo;
 
 public class GUIApplication {
 
@@ -66,14 +69,15 @@ public class GUIApplication {
 
 		ServiceInfo libraryServiceInfo;
 		ServiceInfo storeServiceInfo;
-//		String serviceType = "_grpc._tcp.local.";
-//		String serviceTypeStore = "_http._tcp.local.";
-//		libraryServiceInfo = SimpleServiceDiscovery.run(serviceType);
-//		storeServiceInfo = SimpleServiceDiscovery.run(serviceTypeStore);
-//		int port = libraryServiceInfo.getPort();
-//		int port2 = storeServiceInfo.getPort();
-		int port = 50051;
-		int port2 = 50052;
+		String serviceType = "_grpc._tcp.local.";
+		String serviceTypeStore = "_http._tcp.local.";
+		
+		libraryServiceInfo = SimpleServiceDiscovery.run(serviceType);
+		storeServiceInfo = SimpleServiceDiscovery.run(serviceTypeStore);
+		int port = libraryServiceInfo.getPort();
+		int port2 = storeServiceInfo.getPort();
+//		int port = 50051;
+//		int port2 = 50052;
 		String host = "localhost";
 
 		ManagedChannel libraryChannel = ManagedChannelBuilder.forAddress(host, port).usePlaintext().build();

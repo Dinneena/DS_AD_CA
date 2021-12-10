@@ -18,8 +18,8 @@ public class StoreServer extends StoreImplBase {
 		int port2 = 50052;
 		String serviceType = "_http._tcp.local.";
 		String serviceName = "GrpcLibraryServer";
-//		SimpleServiceRegistration ssr = new SimpleServiceRegistration();
-//		ssr.run(port2, serviceType, serviceName);
+		SimpleServiceRegistration ssr = new SimpleServiceRegistration();
+		ssr.run(port2, serviceType, serviceName);
 
 		StoreServer storeServer = new StoreServer();
 

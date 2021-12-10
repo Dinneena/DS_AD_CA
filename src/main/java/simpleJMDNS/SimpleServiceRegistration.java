@@ -22,15 +22,13 @@ public class SimpleServiceRegistration {
 			 */
 			
 			//the assumption is that we are registering a grpc server
-			String service_type = "_grpc._tcp.local.";				//service-type.domain
+			String service_type = "_grpc._tcp.local.";				
 			// service_name + service_type => simple_http._tcp.local
 			String service_name = "GrpcServer";							
 			int service_port = 50051;
 			String service_desc = "test integration of jmDNS with gRPC";
 				
-			
-			//Create ServiceInfo - 
-			//use the factory method to create the object			
+		
 			ServiceInfo serviceInfo = ServiceInfo.create(service_type, service_name, service_port, service_desc);
 			
 			/*
@@ -42,10 +40,7 @@ public class SimpleServiceRegistration {
 			System.out.printf("registering service with type: %s and name: %s on port %d ", service_type, service_name, service_port);
 			
 			//sleep for 10 seconds
-			Thread.sleep(10000);
-			
-			//unregister the services
-			//jmdns.unregisterAllServices();   //you could also unregister a single service
+			Thread.sleep(10000); 
 			
 			
 		} catch (UnknownHostException e) {

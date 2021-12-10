@@ -52,9 +52,7 @@ public class SimpleServiceDiscovery {
 				//will discover the service based on service type
 				String service_type = "_grpc._tcp.local";	
 				
-				
-				//need to listen for services added/removed etc.
-				//jmdns.addServiceListener(service_type, new MyServiceListener());         //listen for specified type
+
 				jmdns.addServiceListener("_grpc._tcp.local.", new MyServiceListener());
 				
 				

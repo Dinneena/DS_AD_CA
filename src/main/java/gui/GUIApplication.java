@@ -199,6 +199,7 @@ public class GUIApplication {
 
 					@Override
 					public void onError(Throwable t) {
+						clientStreamResponse.setText("An error has occured");
 					}
 
 					@Override
@@ -301,6 +302,7 @@ public class GUIApplication {
 
 					@Override
 					public void onError(Throwable t) {
+						clientStreamResponse.setText("An error has occured");
 					}
 
 					@Override

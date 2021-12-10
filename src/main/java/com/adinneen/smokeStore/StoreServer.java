@@ -1,6 +1,5 @@
 package com.adinneen.smokeStore;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -10,6 +9,7 @@ import com.adinneen.smokeStore.StoreGrpc.StoreImplBase;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
+import simpleJMDNS.SimpleServiceRegistration;
 
 public class StoreServer extends StoreImplBase {
 	static HashMap<String, List<String>> storeMap;

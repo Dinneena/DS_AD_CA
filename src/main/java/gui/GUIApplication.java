@@ -21,7 +21,6 @@ import com.adinneen.smokeLibrary.GameRequest;
 import com.adinneen.smokeLibrary.LibraryGrpc;
 import com.adinneen.smokeLibrary.LibraryGrpc.LibraryBlockingStub;
 import com.adinneen.smokeLibrary.LibraryGrpc.LibraryStub;
-import com.adinneen.smokeLibrary.SimpleServiceDiscovery;
 import com.adinneen.smokeStore.GamesSummary;
 import com.adinneen.smokeStore.StoreGame;
 import com.adinneen.smokeStore.StoreGameRequest;
@@ -32,8 +31,7 @@ import com.adinneen.smokeStore.StoreGrpc.StoreStub;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.stub.StreamObserver;
-
-import javax.jmdns.ServiceInfo;
+import simpleJMDNS.SimpleServiceDiscovery;
 
 public class GUIApplication {
 

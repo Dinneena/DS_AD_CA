@@ -5,44 +5,28 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 import javax.jmdns.JmDNS;
-import javax.jmdns.ServiceEvent;
 import javax.jmdns.ServiceInfo;
-import javax.jmdns.ServiceListener;
 
 public class SimpleServiceRegistration {
 	
-	public static void main(String[] args) {
+	public void run(int port, String serviceType, String serviceName) {
 
-		//get a jMDNS instance
 		try {
 			JmDNS jmdns = JmDNS.create(InetAddress.getLocalHost());
-			
-			/*
-			 * service information
-			 */
-			
-			//the assumption is that we are registering a grpc server
-			String service_type = "_grpc._tcp.local.";				
-			// service_name + service_type => simple_http._tcp.local
-			String service_name = "GrpcServer";							
-			int service_port = 50051;
+
+			int service_port = port;
 			String service_desc = "test integration of jmDNS with gRPC";
-				
-		
-			ServiceInfo serviceInfo = ServiceInfo.create(service_type, service_name, service_port, service_desc);
-			
-			/*
-			 * register the service
-			 */
-			
+
+			ServiceInfo serviceInfo = ServiceInfo.create(serviceType, serviceName, service_port, service_desc);
+
 			jmdns.registerService(serviceInfo);
-			
-			System.out.printf("registering service with type: %s and name: %s on port %d ", service_type, service_name, service_port);
-			
-			//sleep for 10 seconds
-			Thread.sleep(10000); 
-			
-			
+
+			System.out.printf("registering service with type: %s and name: %s on port %d ", serviceType, serviceName,
+					service_port);
+
+			Thread.sleep(10000);
+			System.out.println("\nService Registered");
+
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
